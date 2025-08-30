@@ -28,7 +28,7 @@ export default async function LandingPage() {
                   className='w-full sm:w-auto bg-black text-white hover:bg-gray-800 px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center'
                 >
                   {isLoggedIn ? (
-                    "Check it Out"
+                    "Se Déconnecter"
                   ) : (
                     <>
                       <svg

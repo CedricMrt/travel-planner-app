@@ -12,12 +12,12 @@ export default function NewTrip() {
   const [isPending, startTransition] = useTransition();
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   return (
-    <div className="max-w-lg mx-auto mt-10">
+    <div className='max-w-lg mx-auto mt-10'>
       <Card>
-        <CardHeader> New Trip</CardHeader>
+        <CardHeader> Nouveau Voyage</CardHeader>
         <CardContent>
           <form
-            className="space-y-6"
+            className='space-y-6'
             action={(formData: FormData) => {
               if (imageUrl) {
                 formData.append("imageUrl", imageUrl);
@@ -28,14 +28,14 @@ export default function NewTrip() {
             }}
           >
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className='block text-sm font-medium text-gray-700 mb-1'>
                 {" "}
-                Title
+                Titre
               </label>
               <input
-                type="text"
-                name="title"
-                placeholder="Japan trip..."
+                type='text'
+                name='title'
+                placeholder='Voyage au japon...'
                 className={cn(
                   "w-full border border-gray-300 px-3 py-2",
                   "rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -44,12 +44,12 @@ export default function NewTrip() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className='block text-sm font-medium text-gray-700 mb-1'>
                 Description
               </label>
               <textarea
-                name="description"
-                placeholder="Trip description..."
+                name='description'
+                placeholder='Description du voyage...'
                 className={cn(
                   "w-full border border-gray-300 px-3 py-2",
                   "rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -57,14 +57,14 @@ export default function NewTrip() {
                 required
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className='grid grid-cols-2 gap-4'>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Start Date
+                <label className='block text-sm font-medium text-gray-700 mb-1'>
+                  Date de début
                 </label>
                 <input
-                  type="date"
-                  name="startDate"
+                  type='date'
+                  name='startDate'
                   className={cn(
                     "w-full border border-gray-300 px-3 py-2",
                     "rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -72,13 +72,12 @@ export default function NewTrip() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {" "}
-                  End Date
+                <label className='block text-sm font-medium text-gray-700 mb-1'>
+                  Date de fin
                 </label>
                 <input
-                  type="date"
-                  name="endDate"
+                  type='date'
+                  name='endDate'
                   className={cn(
                     "w-full border border-gray-300 px-3 py-2",
                     "rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -87,19 +86,19 @@ export default function NewTrip() {
               </div>
             </div>
             <div>
-              <label> Trip Image</label>
+              <label> Image du voyage</label>
 
               {imageUrl && (
                 <Image
                   src={imageUrl}
-                  alt="Trip Preview"
-                  className="w-full mb-4 rounded-md max-h-48 object-cover"
+                  alt='Trip Preview'
+                  className='w-full mb-4 rounded-md max-h-48 object-cover'
                   width={300}
                   height={100}
                 />
               )}
               <UploadButton
-                endpoint="imageUploader"
+                endpoint='imageUploader'
                 onClientUploadComplete={(res) => {
                   if (res && res[0].ufsUrl) {
                     setImageUrl(res[0].ufsUrl);
@@ -110,8 +109,8 @@ export default function NewTrip() {
                 }}
               />
             </div>
-            <Button type="submit" disabled={isPending} className="w-full">
-              {isPending ? "Creating..." : "Create Trip"}
+            <Button type='submit' disabled={isPending} className='w-full'>
+              {isPending ? "En cours de création..." : "Créer un voyage"}
             </Button>
           </form>
         </CardContent>
